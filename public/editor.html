@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/normalize.css"> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+
+  <div class="container my-5">
+    <div class="row">
+        <div class="col">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, dolore magni aspernatur perferendis impedit in assumenda ipsam eos, tempore repellendus ullam! In minima odio at assumenda modi? Fugiat, ipsa dicta.</p>
+        </div>
+    
+        <div class="col">
+          <div id="app">
+            <div id="canvas">
+              <div id="rectangle">
+                <div id="info">p</div>
+              </div>
+            </div>
+            <iframe src="/"></iframe>
+          </div>
+        </div>
+
+        <div class="col">
+          hello
+        </div>
+    </div>
+
+  </div>
+
+
+<style>
+iframe {
+  width: 100%;
+  height: 100%;
+}
+  
+</style>
+
+<script>
+let lastFocusedElementText = null;
+
+window.addEventListener('message', (e) => {
+  if (e.data.type === "hover") {
+    const payload = (e.data).payload;
+    alignItems(payload.rect);
+    if (payload.innerText) lastFocusedElementText = payload.innerText;
+    const info = document.getElementById('info');
+    if (!info) throw new Error('Info element is not found');
+    info.innerText = payload.element;
+  }
+});
+
+const visual = document.getElementById('rectangle');
+// const frame = document.getElementById('frame') as HTMLIFrameElement;
+
+function alignItems(rect) {
+  Object.assign(visual.style, {
+    width: rect.width + 'px',
+    height: rect.height + 'px',
+    'inset-block-start': rect.top + 'px',
+    'inset-inline-start': rect.left + 'px',
+  });
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+#app {
+  height: 1000px;
+}
+
+#canvas {
+  position: relative;
+  font-family: sans-serif;
+}
+
+#rectangle {
+  position: absolute;
+  outline: 0.1rem solid #b3b7ff;
+  pointer-events: none;
+}
+
+#rectangle #info {
+  position: relative;
+  user-select: none;
+  height: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.7rem;
+  background-color: #b3b7ff;
+  color: whitesmoke;
+  top: -1.7rem;
+  left: -0.1rem;
+  padding: 0 0.6rem;
+  border-radius: 0.2rem;
+  pointer-events: all;
+}
+
+#rectangle.focused {
+  outline-color: #646cff;
+}
+
+#rectangle.focused #info {
+  background-color: #646cff;
+}
