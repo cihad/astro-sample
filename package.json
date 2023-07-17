@@ -14,5 +14,10 @@
     "turbo": "latest"
   },
   "packageManager": "pnpm@7.15.0",
-  "name": "my-turborepo"
+  "name": "my-turborepo",
+  "dependencies": {
+    "app": "^0.1.0",
+    "normalize.css": "^8.0.1",
+    "tabler-icons-react": "^1.56.0"
+  }
 }
