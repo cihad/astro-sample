@@ -1,21 +1,22 @@
-import { defineConfig } from 'astro/config';
-import { readFileSync } from 'node:fs';
-import { resolve } from 'node:path'
-
+import { defineConfig } from "astro/config";
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
 
 // https://astro.build/config
 const config = defineConfig({
-
+  output: "server",
   integrations: [
     {
       name: "deneme",
       hooks: {
         "astro:config:setup": function (options) {
-          const { injectScript } = options
+          const { injectScript } = options;
 
           injectScript(
-            'head-inline',
-            readFileSync(new URL('./integrations/custom.js', import.meta.url), { encoding: 'utf-8' })
+            "head-inline",
+            readFileSync(new URL("./integrations/custom.js", import.meta.url), {
+              encoding: "utf-8",
+            })
           );
         },
         // 'astro:server:setup': function(options) {
@@ -35,12 +36,9 @@ const config = defineConfig({
         //     }
         //   })
         // }
-      }
-    }
-  ]
-
+      },
+    },
+  ],
 });
 
-
-
-export default config
+export default config;

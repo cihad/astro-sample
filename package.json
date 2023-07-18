@@ -3,6 +3,7 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
+    "dev:app": "turbo run dev --filter=astro-app",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
@@ -16,7 +17,9 @@
   "packageManager": "pnpm@7.15.0",
   "name": "my-turborepo",
   "dependencies": {
+    "@astrojs/compiler": "^1.5.7",
     "app": "^0.1.0",
+    "astro-app": "workspace:^",
     "normalize.css": "^8.0.1",
     "tabler-icons-react": "^1.56.0"
   }
